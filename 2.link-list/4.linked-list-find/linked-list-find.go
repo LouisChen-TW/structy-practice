@@ -13,14 +13,26 @@ func NewNode(value string) *Node {
 	return &Node{value: value}
 }
 
+// iterative
+// func linkedListFind(head *Node, target string) bool {
+// 	for head != nil {
+// 		if head.value == target {
+// 			return true
+// 		}
+// 		head = head.next
+// 	}
+// 	return false
+// }
+
+// recursive
 func linkedListFind(head *Node, target string) bool {
-	for head != nil {
-		if head.value == target {
-			return true
-		}
-		head = head.next
+	if head == nil {
+		return false
 	}
-	return false
+	if head.value == target {
+		return true
+	}
+	return linkedListFind(head.next, target)
 }
 
 func main() {

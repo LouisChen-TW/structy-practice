@@ -13,13 +13,22 @@ func NewNode(value int) *Node {
 	return &Node{value: value}
 }
 
+// iterative
+// func sumList(head *Node) int {
+// 	sum := 0
+// 	for head != nil {
+// 		sum += head.value
+// 		head = head.next
+// 	}
+// 	return sum
+// }
+
+// recursive
 func sumList(head *Node) int {
-	sum := 0
-	for head != nil {
-		sum += head.value
-		head = head.next
+	if head == nil {
+		return 0
 	}
-	return sum
+	return head.value + sumList(head.next)
 }
 
 func main() {

@@ -23,16 +23,28 @@ func printLinkedList(head *Node) {
 	printLinkedList(head.next)
 }
 
+// iterative
+// func isUniValueList(head *Node) bool {
+// 	next := head.next
+// 	for next != nil {
+// 		if head.value == next.value {
+// 			next = next.next
+// 		} else {
+// 			return false
+// 		}
+// 	}
+// 	return true
+// }
+
+// recursive
 func isUniValueList(head *Node) bool {
-	next := head.next
-	for next != nil {
-		if head.value == next.value {
-			next = next.next
-		} else {
-			return false
-		}
+	if head.next == nil {
+		return true
 	}
-	return true
+	if head.value != head.next.value {
+		return false
+	}
+	return isUniValueList(head.next)
 }
 
 func main() {

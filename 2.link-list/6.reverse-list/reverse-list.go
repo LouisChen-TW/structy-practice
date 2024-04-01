@@ -28,6 +28,14 @@ func reverseList(head *Node) *Node {
 	return prev
 }
 
+func printLinkedList(head *Node) {
+	if head == nil {
+		return
+	}
+	fmt.Println(head.value)
+	printLinkedList(head.next)
+}
+
 func main() {
 	a := NewNode("a")
 	b := NewNode("b")
@@ -42,5 +50,5 @@ func main() {
 	d.next = e
 	e.next = f
 
-	fmt.Println(*reverseList(a))
+	printLinkedList(reverseList(a))
 }

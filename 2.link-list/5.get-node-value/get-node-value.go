@@ -15,15 +15,27 @@ func NewNode(value string) *Node {
 	return &Node{value: value}
 }
 
+// iterative
+// func getNodeValue(head *Node, index int) *string {
+// 	for head != nil {
+// 		if index == 0 {
+// 			return &head.value
+// 		}
+// 		head = head.next
+// 		index--
+// 	}
+// 	return nil
+// }
+
+// recursive
 func getNodeValue(head *Node, index int) *string {
-	for head != nil {
-		if index == 0 {
-			return &head.value
-		}
-		head = head.next
-		index--
+	if head == nil {
+		return nil
 	}
-	return nil
+	if index == 0 {
+		return &head.value
+	}
+	return getNodeValue(head.next, index-1)
 }
 
 func main() {
