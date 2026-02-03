@@ -8,14 +8,13 @@ package main
 
 import (
 	"fmt"
-	"math"
 )
 
 func maxValue(nums []float64) float64 {
-	var maxNumber float64 = math.Inf(-1)
-	for _, num := range nums {
-		if num > maxNumber {
-			maxNumber = num
+	maxNumber := nums[0]
+	for i := 1; i < len(nums); i++ {
+		if nums[i] > maxNumber {
+			maxNumber = nums[i]
 		}
 	}
 	return maxNumber
